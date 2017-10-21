@@ -1,13 +1,15 @@
+var bcrypt = require('bcrypt');
 
 exports.seed = function(knex, Promise) {
-  // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex.raw('DELETE FROM "account"; ALTER SEQUENCE account_id_seq RESTART WITH 2;')
     .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
+      var accounts = [{
+        id: 1,
+        email: 'eshaben@icloud.com',
+        password: bcrypt.hashSync('eshaben', 10),
+        first_name: 'Erin',
+        last_name: 'Shaben'
+      }];
+      return knex('account').insert(accounts);
     });
 };
