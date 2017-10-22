@@ -3,7 +3,9 @@ const config = require('../knexfile.js')[environment];
 
 const objection = require('objection')
 const Model = objection.Model
-const Knex = require('knex')
-const knexConfig = require('knex')(config)
+const knex = require('knex')
+const connection = knex(config)
 
-module.exports = Model.knex(knexConfig);
+Model.knex(connection)
+
+module.exports = require('knex')(config);

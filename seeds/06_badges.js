@@ -7,7 +7,36 @@ exports.seed = function(knex, Promise) {
         points_needed: 0,
         image: 'coming soon',
         title: 'Networking Noob',
-        account_id: 1
+      },
+      {
+        id: 2,
+        points_needed: 2000,
+        image: 'coming soon',
+        title: 'Networking Skilled',
+      },
+      {
+        id: 3,
+        points_needed: 0,
+        image: 'coming soon',
+        title: 'Networking Intermidiate',
+      },
+      {
+        id: 4,
+        points_needed: 0,
+        image: 'coming soon',
+        title: 'Networking Proficient',
+      },
+      {
+        id: 5,
+        points_needed: 0,
+        image: 'coming soon',
+        title: 'Networking Advanced',
+      },
+      {
+        id: 6,
+        points_needed: 0,
+        image: 'coming soon',
+        title: 'Networking Expert',
       }];
       return knex('badge').insert(badges);
     });
